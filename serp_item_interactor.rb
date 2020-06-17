@@ -9,6 +9,7 @@ class SerpItemInteractor
     kws.each do |kw|
       results << @repository.fetch(kw: kw)
       puts "#{kw} is done"
+      STDOUT.flush
       sleep(10)
     end
     @presenter.run(serp_items: results.flatten, column_domains: domains)
